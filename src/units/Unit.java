@@ -7,8 +7,6 @@ abstract public class Unit {
 	private final double CENTI_TO_BASE = 1.0e2;
 	private final double NANO_TO_BASE = 1.0e9;
 	private final double MICRO_TO_BASE = 1.0e6;
-	final double MIN_TO_SEC = 60.0;
-	final double HOUR_TO_DAY = 24.0;
 	private final double DECI_TO_BASE = 1.0e1;
 
 	

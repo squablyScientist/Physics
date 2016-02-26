@@ -1,5 +1,6 @@
 package formulae;
 
+import org.jetbrains.annotations.Contract;
 import units.*;
 
 class Kinematics {
@@ -35,7 +36,6 @@ class Kinematics {
 		double mag = Math.sqrt((Math.pow(init.getValue(), 2))
 				+ 2 * (accel.getValue() * dist.getValue()));
 		return new MetersPerSec(mag, 1);
-		
 	}
 
 }

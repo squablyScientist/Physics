@@ -3,7 +3,7 @@ package units;
 public class Meter extends Unit {
 
 	// Constructor and conversion into usable value
-	public Meter(double entry, int deg) {
+	public Meter(double entry, double deg) {
 		super(entry, deg);
 	}
 

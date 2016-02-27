@@ -1,5 +1,5 @@
 
-package formulae;
+package formulae.kinematics;
 
 import units.*;
 
@@ -92,6 +92,6 @@ class Kinematics {
 
 
     //------------------Rotational Kinematics---------------------
-    //Find the
+
 
 }

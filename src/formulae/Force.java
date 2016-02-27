@@ -5,11 +5,26 @@ import units.*;
 class Force {
 
 	// Find the force exerted anywhere
-	public Newton getForce(Kilogram mass, MetersPerSecSquared accel) {
-		double magnitude = mass.getValue() * accel.getValue();
+	//F = ma
+	public static Newton getForce(Kilogram mass, MetersPerSecSquared accel) {
+		double mag = mass.getValue() * accel.getValue();
 
-		return new Newton(magnitude, 1.0);
+		return new Newton(mag, 1.0);
 		
 	}
 
+	//Find the gravitational force on something
+	public static Newton getGravForce(Kilogram mass){
+		return new Newton(mass.getValue() * 9.8, 1.0);
+	}
+
+	//Find the centripetal force
+	//Fc = (mv^2)/r
+	public static Newton centripForce(Kilogram mass, MetersPerSec vel, Meter radius){
+		double mag = (mass.getValue() * Math.pow(vel.getValue(),2)) / radius.getValue();
+		return new Newton(mag, 1.0);
+	}
+
+
 }
+

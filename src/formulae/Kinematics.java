@@ -1,5 +1,5 @@
 
-package formulae.kinematics;
+package formulae;
 
 import units.*;
 
@@ -89,9 +89,6 @@ class Kinematics {
         double mag = (initVel.getValue() * time.getValue()) + (0.5 * accel.getValue() * Math.pow(time.getValue(), 2));
         return new Meter(mag, 1.0);
     }
-
-
-    //------------------Rotational Kinematics---------------------
 
 
 }

@@ -4,6 +4,9 @@ import formulae.Direction;
 
 public class MetersPerSecSquared extends Unit {
 
+	public MetersPerSecSquared(double entry) {
+		super(entry);
+	}
 
 	public MetersPerSecSquared(double entry, double deg) {
 		super(entry, deg);

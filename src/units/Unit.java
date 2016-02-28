@@ -36,7 +36,7 @@ public class Unit {
 	}
 
 	public Unit(double entry, Direction direction) {
-		setValue(entry);
+		setValue(Math.pow(entry, direction.getDegree()));
 		setDirection(direction);
 	}
 

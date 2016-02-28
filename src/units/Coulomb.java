@@ -2,8 +2,13 @@ package units;
 
 public class Coulomb extends Unit {
 
+	public Coulomb(double entry) {
+		super(entry);
+	}
+
 	public Coulomb(double entry, double deg) {
 		super(entry, deg);
+
 	}
 
 	@Override

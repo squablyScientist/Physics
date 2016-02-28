@@ -7,6 +7,10 @@ public class Newton extends Unit {
 	Direction direction;
 
 	//Constructor for just force
+	public Newton(double entry) {
+		super(entry);
+	}
+
 	public Newton(double entry, double deg) {
 		super(entry, deg);
 	}
@@ -16,7 +20,7 @@ public class Newton extends Unit {
 		super(entry, deg, direction);
 	}
 
-	public Newton(double entry, Direction direction){
+	public Newton(double entry, Direction direction) {
 		super(entry, direction);
 	}
 

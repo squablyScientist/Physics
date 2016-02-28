@@ -13,7 +13,7 @@ package formulae;
 
 
 public enum Direction {
-	UP("\u2191", 1.0), DOWN("\u2193", -1.0), RIGHT("\u2192", 1.0), LEFT("\u2190", -1.0);
+	UP("\u2191", 1.0), DOWN("\u2193", -1.0), RIGHT("\u2192", 1.0), LEFT("\u2190", -1.0) ;
 
 	private final String arrow;
 	private final double degree;

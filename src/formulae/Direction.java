@@ -15,8 +15,8 @@ package formulae;
 public enum Direction {
 	UP("\u2191", 1.0), DOWN("\u2193", -1.0), RIGHT("\u2192", 1.0), LEFT("\u2190", -1.0);
 
-	private String arrow;
-	private double degree;
+	private final String arrow;
+	private final double degree;
 
 	//constructor
 	Direction(String arrow, double posneg) {
@@ -24,7 +24,7 @@ public enum Direction {
 		this.degree = posneg;
 	}
 
-	public String getArrow() {
+	private String getArrow() {
 		return arrow;
 	}
 

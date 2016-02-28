@@ -13,8 +13,11 @@ public class Newton extends Unit {
 
 	//Constructor for force with direction
 	public Newton(double entry, double deg, Direction direction) {
-		super(entry, deg);
-		this.direction = direction;
+		super(entry, deg, direction);
+	}
+
+	public Newton(double entry, Direction direction){
+		super(entry, direction);
 	}
 
 	@Override

@@ -48,7 +48,7 @@ class Force {
 
 	//Find the gravitational force on something
 	public static Newton getGravForce(Kilogram mass) {
-		return new Newton(mass.getValue() * 9.8, 1.0);
+		return new Newton(mass.getValue() * 9.8);
 	}
 
 	//Find the net force on any given object
@@ -60,11 +60,11 @@ class Force {
 		Newton vert, hor;
 
 		//Add up all of the force magnitudes
-		for (int i = 0; i < forces.size(); i++) {
-			if (forces.get(i).getDirection() == Direction.UP || forces.get(i).getDirection() == Direction.DOWN) {
-				netVert += forces.get(i).getValue();
-			} else if (forces.get(i).getDirection() == Direction.RIGHT || forces.get(i).getDirection() == Direction.LEFT) {
-				netHor += forces.get(i).getValue();
+		for (Newton force : forces) {
+			if (force.getDirection() == Direction.UP || force.getDirection() == Direction.DOWN) {
+				netVert += force.getValue();
+			} else if (force.getDirection() == Direction.RIGHT || force.getDirection() == Direction.LEFT) {
+				netHor += force.getValue();
 			}
 		}
 

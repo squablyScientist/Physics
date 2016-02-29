@@ -12,22 +12,35 @@ import java.util.ArrayList;
 
 public class Force {
 
-	// Find the force exerted anywhere
-	//F = ma
+	/**
+	 * @param mass  Mass of the object being evaluated
+	 * @param accel The acceleration of the object being evaluated
+	 * @return the product of the the two params as a force
+	 */
 	private static Newton getForce(Kilogram mass, MetersPerSecSquared accel) {
 		double mag = mass.getValue() * accel.getValue();
 
 		return new Newton(mag, 1.0);
 	}
 
-	//Find force with a direction
+	/**
+	 * Find the Directional force based on the mass, acceleration, and the direction of acceleration
+	 * @param mass The mass of the object
+	 * @param accel The acceleration of the object
+	 * @param direction The direction of the acceleration
+	 * @return The product of the mass and acceleration as a force
+	 */
 	public static Newton getDirectionalForce(Kilogram mass, MetersPerSecSquared accel, Direction direction) {
 		double mag = getForce(mass, accel).getValue();
 		return new Newton(mag, 1.0, direction);
 	}
 
-	//Find the two components of an angular force
-	//Degrees
+	/**
+	 * Find the two components of a force at an angle that is not up down left or right
+	 * @param force The force exerted
+	 * @param angle The angle of the force in relation to the right-hand horizontal in degrees
+	 * @return an ArrayList of Newton objects with magnitude and direction, one vertical and one horizontal
+	 */
 	public static ArrayList<Newton> getDirectionalAngularForceDegrees(Newton force, double angle) {
 		ArrayList<Newton> list = new ArrayList<>();
 		ArrayList<Unit> unitArrayList;
@@ -39,7 +52,12 @@ public class Force {
 		return list;
 	}
 
-	//Radians
+	/**
+	 * Find the two components of a force at an angle that is not up down left or right
+	 * @param force The force exerted
+	 * @param angle The angle of the force in relation to the right-hand horizontal in radians
+	 * @return an ArrayList of Newton objects with magnitude and direction, one vertical and one horizontal
+	 */
 	public static ArrayList<Newton> getDirectionalAngularForceRadians(Newton force, Radians angle) {
 		ArrayList<Newton> list = new ArrayList<>();
 		ArrayList<Unit> unitArrayList;
@@ -52,12 +70,21 @@ public class Force {
 	}
 
 
-	//Find the gravitational force on something
+	/**
+	 * Finds the gravitational force on any given object
+	 * @param mass The mass of the object
+	 * @return The product of the mass and the acceleration of gravity in the down direction
+	 */
 	public static Newton getGravForce(Kilogram mass) {
-		return new Newton(mass.getValue() * 9.8);
+		return new Newton(mass.getValue() * 9.8, Direction.DOWN);
 	}
 
-	//Find the net force on any given object
+	/**
+	 * //Find the net force
+	 * @param forces Takes an ArrayList of Newton
+	 * @return ArrayList of two Newton objects, with the first being the net horizontal force and the
+	 * second being the net force of the vertical force
+	 */
 	public static ArrayList<Newton> netForce(ArrayList<Newton> forces) {
 		ArrayList<Newton> list = new ArrayList<>();
 

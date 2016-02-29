@@ -11,7 +11,7 @@ class Centripetal {
 
 	//Find the centripetal force
 	//Fc = (mv^2)/r
-	public static Newton centripForce(Kilogram mass, MetersPerSec vel, Meter radius) {
+	public Newton centripForce(Kilogram mass, MetersPerSec vel, Meter radius) {
 		double mag = (mass.getValue() * Math.pow(vel.getValue(), 2)) / radius.getValue();
 		return new Newton(mag, 1.0);
 	}
@@ -22,7 +22,7 @@ class Centripetal {
 	//Fc = (m * v^2) /r
 	//m * ac = (m*v^2) / r
 	//ac = (v^2)/r
-	public static MetersPerSecSquared centripAccel(MetersPerSec vel, Meter radius) {
+	public MetersPerSecSquared centripAccel(MetersPerSec vel, Meter radius) {
 		double mag = (Math.pow(vel.getValue(), 2)) / radius.getValue();
 		return new MetersPerSecSquared(mag, 1.0);
 	}
@@ -31,7 +31,7 @@ class Centripetal {
 	//Fc = mv^2/r
 	//Fc r = mv^2
 	//r = (mv^2)/Fc
-	public static Meter radius(Kilogram mass, MetersPerSec vel, Newton force) {
+	public Meter radius(Kilogram mass, MetersPerSec vel, Newton force) {
 		double mag = (mass.getValue() * Math.pow(vel.getValue(), 2)) / force.getValue();
 		return new Meter(mag);
 	}
@@ -39,7 +39,7 @@ class Centripetal {
 	//ac = (v^2) / r
 	//r * ac = v^2
 	//r = (v^2)/ac
-	public static Meter radius(MetersPerSec vel, MetersPerSecSquared accell) {
+	public Meter radius(MetersPerSec vel, MetersPerSecSquared accell) {
 		double mag = Math.pow(vel.getValue(), 2) / accell.getValue();
 		return new Meter(mag);
 	}

@@ -33,6 +33,25 @@ public enum Direction {
 		return sign;
 	}
 
+	/**
+	 * @param d The Direction that is to be flipped
+	 * @return the opposite Direction to parameter d
+	 * @throws Error when
+	 */
+	public static Direction flip(Direction d) {
+		if (d == DOWN) {
+			return UP;
+		} else if (d == UP) {
+			return DOWN;
+		} else if (d == LEFT) {
+			return RIGHT;
+		} else if (d == RIGHT) {
+			return LEFT;
+		} else {
+			throw new Error("Not a valid Direction");
+		}
+	}
+
 	@Override
 	public String toString() {
 		return getArrow();

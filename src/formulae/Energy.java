@@ -23,6 +23,4 @@ class Energy {
 		double mag = (0.5) * mass.getValue() * Math.pow(velocity.getValue(), 2);
 		return new Joule(mag);
 	}
-
-
 }

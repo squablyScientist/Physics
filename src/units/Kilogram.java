@@ -1,5 +1,7 @@
 package units;
 
+import formulae.Direction;
+
 public class Kilogram extends Unit {
 
 	public Kilogram(double entry) {

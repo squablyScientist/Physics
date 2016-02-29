@@ -12,10 +12,6 @@ public class Unit {
 
 	// Final variable declarations for conversions
 	private final double MILLI_TO_BASE = 1.0e3;
-	private final double CENTI_TO_BASE = 1.0e2;
-	private final double NANO_TO_BASE = 1.0e9;
-	private final double MICRO_TO_BASE = 1.0e6;
-	private final double DECI_TO_BASE = 1.0e1;
 
 
 	private double value;
@@ -24,16 +20,20 @@ public class Unit {
 
 	public Unit(double entry) {
 		setValue(entry);
+
 	}
 
 	public Unit(double entry, double deg) {
-		setValue(Math.pow(entry, deg));
 
+		setValue(Math.pow(entry, deg));
 	}
 
+
 	public Unit(double entry, double deg, Direction direction) {
+
 		setValue(Math.pow(entry * direction.getSign(), deg));
 		setDirection(direction);
+
 	}
 
 	public Unit(double entry, Direction direction) {
@@ -46,7 +46,7 @@ public class Unit {
 		return direction;
 	}
 
-	public void setDirection(Direction direction) {
+	private void setDirection(Direction direction) {
 		this.direction = direction;
 	}
 
@@ -56,18 +56,20 @@ public class Unit {
 		return value;
 	}
 
-	private void setValue(double value) {
+	public void setValue(double value) {
 		this.value = value;
 	}
 
 	// Conversions
 	// converts deci- to the base unit
 	public double deciBase(double deci) {
+		double DECI_TO_BASE = 1.0e1;
 		return deci / DECI_TO_BASE;
 	}
 
 	// converts a centi- to the base unit
 	public double centiBase(double centi) {
+		double CENTI_TO_BASE = 1.0e2;
 		return centi / CENTI_TO_BASE;
 	}
 
@@ -78,11 +80,13 @@ public class Unit {
 
 	// converts a micro- to the base unit
 	public double microBase(double micro) {
+		double MICRO_TO_BASE = 1.0e6;
 		return micro / MICRO_TO_BASE;
 	}
 
 	// Converts a nano- to the base unit
 	public double nanoBase(double nano) {
+		double NANO_TO_BASE = 1.0e9;
 		return nano / NANO_TO_BASE;
 	}
 
@@ -91,8 +95,8 @@ public class Unit {
 		return kilo * MILLI_TO_BASE;
 	}
 
+	@Override
 	public String toString() {
-		return String.valueOf(getValue());
-
+		return "" + getValue();
 	}
 }

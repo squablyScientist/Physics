@@ -7,26 +7,41 @@ import units.*;
  * @author Collin Tod
  * @version 0.2
  */
-public class Kinematics {
+class Kinematics {
 
 
 	// -----------------------------Linear 1D--------------------------------
 
-	// Find the velocity regardless of final or initial
-	// v = m / t
+	/**
+	 * //Find the velocity based on distance ant time
+	 *
+	 * @param distance The distance travelled
+	 * @param time     Time elapsed
+	 * @return The velocity
+	 */
 	public static MetersPerSec vel(Meter distance, Second time) {
 		double mag = distance.getValue() / time.getValue();
 		return new MetersPerSec(mag);
 	}
 
-	// v = at
+	/**
+	 * Find the velocity based on the time and acceleration
+	 * @param accel The acceleration
+	 * @param time The time elapsed
+	 * @return The velocity
+	 */
 	public static MetersPerSec vel(MetersPerSecSquared accel, Second time) {
 		double mag = accel.getValue() * time.getValue();
 		return new MetersPerSec(mag);
 	}
 
-	// Find the final velocity
-	// v = v0 + at
+	/**
+	 * Find the final velocity based on time, initial velocity, and acceleration.
+	 * @param init The initial velocity
+	 * @param accel The acceleration
+	 * @param time The time elapsed
+	 * @return The final velocity
+	 */
 	public static MetersPerSec finalVel(MetersPerSec init, MetersPerSecSquared
 			accel, Second time) {
 		double mag = (init.getValue() + (accel.getValue() * time.getValue()));
@@ -34,7 +49,14 @@ public class Kinematics {
 
 	}
 
-	//v^2 = v0^2 + 2ax
+
+	/**
+	 *
+	 * @param init The initial velocity
+	 * @param accel The acceleration
+	 * @param dist The displacement
+	 * @return The final velocity based on the initial velocity, acceleration, and the displacement of the object.
+	 */
 	public static MetersPerSec finalVel(MetersPerSec init, MetersPerSecSquared accel,
 										Meter dist) {
 		double mag = Math.sqrt((Math.pow(init.getValue(), 2))

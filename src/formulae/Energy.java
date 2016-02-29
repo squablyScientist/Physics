@@ -18,7 +18,7 @@ class Energy {
 	//Kinetic
 	public Joule kinEn(Kilogram mass, MetersPerSec velocity){
 		double mag = (0.5) * mass.getValue() * Math.pow(velocity.getValue(), 2);
-		return new Joule(mag, 1.0);
+		return new Joule(mag);
 	}
 	
 	

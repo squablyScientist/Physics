@@ -4,8 +4,6 @@ import formulae.Direction;
 
 public class Newton extends Unit {
 
-	Direction direction;
-
 	//Constructor for just force
 	public Newton(double entry) {
 		super(entry);

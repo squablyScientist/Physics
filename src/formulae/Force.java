@@ -4,7 +4,13 @@ import units.*;
 
 import java.util.ArrayList;
 
-class Force {
+/**
+ * @author Collin Tod
+ * @version 0.3
+ * @since 2-27-2016
+ */
+
+public class Force {
 
 	// Find the force exerted anywhere
 	//F = ma
@@ -52,7 +58,7 @@ class Force {
 	}
 
 	//Find the net force on any given object
-	public ArrayList<Newton> netForce(ArrayList<Newton> forces) {
+	public static ArrayList<Newton> netForce(ArrayList<Newton> forces) {
 		ArrayList<Newton> list = new ArrayList<>();
 
 		double netHor = 0.0;

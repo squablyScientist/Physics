@@ -7,6 +7,7 @@ import formulae.Direction;
  * @version 0.3
  * @since 2-27-2016
  */
+
 public class Unit {
 
 	// Final variable declarations for conversions
@@ -31,12 +32,12 @@ public class Unit {
 	}
 
 	public Unit(double entry, double deg, Direction direction) {
-		setValue(Math.pow(entry, deg * direction.getDegree()));
+		setValue(Math.pow(entry * direction.getSign(), deg));
 		setDirection(direction);
 	}
 
 	public Unit(double entry, Direction direction) {
-		setValue(Math.pow(entry, direction.getDegree()));
+		setValue(entry * direction.getSign());
 		setDirection(direction);
 	}
 
@@ -91,7 +92,7 @@ public class Unit {
 	}
 
 	public String toString() {
-		return String.valueOf(value);
+		return String.valueOf(getValue());
 
 	}
 }

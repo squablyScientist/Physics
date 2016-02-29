@@ -5,7 +5,7 @@ import units.*;
 
 /**
  * @author Collin Tod
- * @version 0.1
+ * @version 0.2
  */
 public class Kinematics {
 
@@ -77,7 +77,6 @@ public class Kinematics {
 	//Only usable if initial velocity is 0
 	//x = 1/2 at^2
 	//t = sqrt([x/(1/2 * a)])
-	//test
 	public static Second time(Meter displacement, MetersPerSecSquared accel) {
 		double mag = Math.sqrt((displacement.getValue()) / (0.5 * accel.getValue()));
 		return new Second(mag);

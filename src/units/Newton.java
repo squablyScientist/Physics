@@ -5,7 +5,6 @@ import formulae.Direction;
 public class Newton extends Unit {
 
 
-	//Constructor for just force
 	public Newton(double entry) {
 		super(entry);
 	}
@@ -14,7 +13,6 @@ public class Newton extends Unit {
 		super(entry, deg);
 	}
 
-	//Constructor for force with direction
 	public Newton(double entry, double deg, Direction direction) {
 		super(entry, deg, direction);
 	}
@@ -27,6 +25,8 @@ public class Newton extends Unit {
 	public String toString() {
 		if (direction == null) {
 			return super.toString() + "N";
+		} else if (getValue() < 0) {
+			return "" + Math.abs(getValue()) + "N " + Direction.flip(direction);
 		} else {
 			return super.toString() + "N " + getDirection();
 		}

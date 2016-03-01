@@ -8,7 +8,6 @@ public class Kilogram extends Unit {
 		super(entry);
 	}
 
-	// Constructor and conversion into usable value
 	public Kilogram(double entry, double deg) {
 		super(entry, deg);
 	}

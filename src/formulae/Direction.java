@@ -19,10 +19,13 @@ public enum Direction {
 	private final String arrow;
 	private final double sign;
 
-	//constructor
-	Direction(String arrow, double posneg) {
+	/**
+	 * @param arrow The unicode String that when printed appears as an arrow denoting the direction
+	 * @param sign  an Integer that determines whether or not the unit is positive or negative for net calculations
+	 */
+	Direction(String arrow, double sign) {
 		this.arrow = arrow;
-		this.sign = posneg;
+		this.sign = sign;
 	}
 
 	private String getArrow() {
@@ -35,8 +38,8 @@ public enum Direction {
 
 	/**
 	 * @param d The Direction that is to be flipped
-	 * @return the opposite Direction to parameter d
-	 * @throws Error when
+	 * @return the opposite Direction to parameter "d"
+	 * @throws Error when invalid direction is entered as a param
 	 */
 	public static Direction flip(Direction d) {
 		if (d == DOWN) {

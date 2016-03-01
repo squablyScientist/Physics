@@ -9,8 +9,14 @@ import units.*;
  */
 class Centripetal {
 
-	//Find the centripetal force
-	//Fc = (mv^2)/r
+	/**
+	 * Find the centripetal force based on the mass, velocity, and the radius
+	 *
+	 * @param mass   The mass
+	 * @param vel    The velocity
+	 * @param radius The radius in relation to the centre of the circle
+	 * @return The centripetal force
+	 */
 	public Newton centripForce(Kilogram mass, MetersPerSec vel, Meter radius) {
 		double mag = (mass.getValue() * Math.pow(vel.getValue(), 2)) / radius.getValue();
 		return new Newton(mag, 1.0);
@@ -43,7 +49,6 @@ class Centripetal {
 		double mag = Math.pow(vel.getValue(), 2) / accell.getValue();
 		return new Meter(mag);
 	}
-
 
 
 }

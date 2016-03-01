@@ -28,7 +28,6 @@ public class Unit {
 		setValue(Math.pow(entry, deg));
 	}
 
-
 	public Unit(double entry, double deg, Direction direction) {
 
 		setValue(Math.pow(entry * direction.getSign(), deg));
@@ -41,7 +40,6 @@ public class Unit {
 		setDirection(direction);
 	}
 
-
 	public Direction getDirection() {
 		return direction;
 	}
@@ -49,7 +47,6 @@ public class Unit {
 	private void setDirection(Direction direction) {
 		this.direction = direction;
 	}
-
 
 	//getter and setter
 	public double getValue() {
@@ -60,7 +57,7 @@ public class Unit {
 		this.value = value;
 	}
 
-	// Conversions
+	// ~~~~~~~~~~~~~~~Conversions~~~~~~~~~~~~~~~~
 	// converts deci- to the base unit
 	public double deciBase(double deci) {
 		double DECI_TO_BASE = 1.0e1;

@@ -3,9 +3,11 @@ package formulae;
 
 import units.*;
 
+import java.util.ArrayList;
+
 /**
  * @author Collin Tod
- * @version 0.2
+ * @version 0.3
  */
 class Kinematics {
 
@@ -26,8 +28,9 @@ class Kinematics {
 
 	/**
 	 * Find the velocity based on the time and acceleration
+	 *
 	 * @param accel The acceleration
-	 * @param time The time elapsed
+	 * @param time  The time elapsed
 	 * @return The velocity
 	 */
 	public static MetersPerSec vel(MetersPerSecSquared accel, Second time) {
@@ -37,9 +40,10 @@ class Kinematics {
 
 	/**
 	 * Find the final velocity based on time, initial velocity, and acceleration.
-	 * @param init The initial velocity
+	 *
+	 * @param init  The initial velocity
 	 * @param accel The acceleration
-	 * @param time The time elapsed
+	 * @param time  The time elapsed
 	 * @return The final velocity
 	 */
 	public static MetersPerSec finalVel(MetersPerSec init, MetersPerSecSquared
@@ -51,11 +55,12 @@ class Kinematics {
 
 
 	/**
+	 * Find the final velocity based on the initial velocity, acceleration, and the displacement.
 	 *
-	 * @param init The initial velocity
+	 * @param init  The initial velocity
 	 * @param accel The acceleration
-	 * @param dist The displacement
-	 * @return The final velocity based on the initial velocity, acceleration, and the displacement of the object.
+	 * @param dist  The displacement
+	 * @return The final velocity
 	 */
 	public static MetersPerSec finalVel(MetersPerSec init, MetersPerSecSquared accel,
 										Meter dist) {
@@ -64,55 +69,97 @@ class Kinematics {
 		return new MetersPerSec(mag, 1);
 	}
 
-	//Find the initial velocity
-	//v = v0 + at
-	//v0 = v - at
-
+	/**
+	 * Find the initial velocity based on the final velocity, acceleration, and the time elapsed
+	 *
+	 * @param vel   The final velocity
+	 * @param accel The acceleration
+	 * @param time  The time elapsed
+	 * @return The initial velocity
+	 */
 	public static MetersPerSec initVel(MetersPerSec vel, MetersPerSecSquared accel, Second time) {
 		double mag = vel.getValue() - (accel.getValue() * time.getValue());
 		return new MetersPerSec(mag);
 	}
 
-	//v^2 = v0^2 + 2ax
-	//v0 = sqrt(v^2 - 2ax)
+	/**
+	 * Find the initial velocity due to the final velocity, acceleration, and the displacement
+	 *
+	 * @param vel   The velocity
+	 * @param accel The acceleration
+	 * @param dist  The displacement
+	 * @return The initial velocity
+	 */
 	public static MetersPerSec initVel(MetersPerSec vel, MetersPerSecSquared accel, Meter dist) {
 		double mag = Math.sqrt(Math.pow(vel.getValue(), 2) - (2 * accel.getValue() * dist.getValue()));
 
 		return new MetersPerSec(mag);
 	}
 
-	//x = v0t + 1/2 a t^2
-	//v0 = (x - 1/2 a t^2) / t
+	/**
+	 * Find the initial velocity based on the displacement, acceleration, and the time elapsed
+	 *
+	 * @param dist  The displacement
+	 * @param accel The acceleration
+	 * @param time  The time elapsed
+	 * @return The initial velocity
+	 */
 	public static MetersPerSec initVel(Meter dist, MetersPerSecSquared accel, Second time) {
 		double mag = (dist.getValue() - (0.5 * accel.getValue() * Math.pow(time.getValue(), 2))) / time.getValue();
 		return new MetersPerSec(mag);
 	}
 
-	//Find the time elapsed
-	//v = v0 + at
-	//t = (v - v0) / a
+	/**
+	 * Find the time elapsed based on the initial velocity, final velocity, and the acceleration
+	 *
+	 * @param initVel The initial velocity
+	 * @param vel     The final velocity
+	 * @param accel   The acceleration
+	 * @return The time elapsed in the system
+	 */
 	public static Second time(MetersPerSec initVel, MetersPerSec vel, MetersPerSecSquared accel) {
 		double mag = (vel.getValue() - initVel.getValue()) / accel.getValue();
 		return new Second(mag);
 	}
 
-	//Only usable if initial velocity is 0
-	//x = 1/2 at^2
-	//t = sqrt([x/(1/2 * a)])
-	public static Second time(Meter displacement, MetersPerSecSquared accel) {
+	/**
+	 * Find the time elapsed based on the displacement and the acceleration
+	 *
+	 * @param initVel      The initial velocity MUST BE 0.0 FOR THIS METHOD TO WORK
+	 * @param displacement The displacement
+	 * @param accel        The acceleration
+	 * @return The time elapsed
+	 * @throws Error that tells the user that the method does not apply
+	 */
+	public static Second time(MetersPerSec initVel, Meter displacement, MetersPerSecSquared accel) {
+		if (initVel.getValue() != 0) {
+			throw new Error("This method does not apply to situations in which the initial velocity is not 0, please use another");
+		}
 		double mag = Math.sqrt((displacement.getValue()) / (0.5 * accel.getValue()));
 		return new Second(mag);
 	}
 
-	//Find the displacement
-	//v^2 = v0^2 + 2ax
-	//x = (v^2 - v0^2) / 2a
+	/**
+	 * Find the displacement based on the final velocity, initial velocity, and acceleration
+	 *
+	 * @param vel     The final velocity
+	 * @param initVel The initial velocity
+	 * @param accel   The acceleration
+	 * @return The displacement
+	 */
 	public static Meter displacement(MetersPerSec vel, MetersPerSec initVel, MetersPerSecSquared accel) {
 		double mag = (Math.pow(vel.getValue(), 2) - Math.pow(initVel.getValue(), 2)) / (2 * accel.getValue());
 		return new Meter(mag);
 	}
 
-	//x = v0t + 1/2 a t^2
+	/**
+	 * Find the displacement based on the initial velocity, acceleration, and time elapsed
+	 *
+	 * @param initVel The initial velocity
+	 * @param accel   The acceleration
+	 * @param time    The time elapsed
+	 * @return The displacement
+	 */
 	public static Meter displacement(MetersPerSec initVel, MetersPerSecSquared accel, Second time) {
 		double mag = (initVel.getValue() * time.getValue()) + (0.5 * accel.getValue() * Math.pow(time.getValue(), 2));
 		return new Meter(mag);
@@ -120,25 +167,45 @@ class Kinematics {
 
 	//Find the acceleration
 
-	//v = v0 + at
-	//a = (v - v0)/t
+	/**
+	 * Find the acceleration based on the
+	 *
+	 * @param vel     The final velocity
+	 * @param initVel The initial velocity
+	 * @param time    The time elapsed
+	 * @return The acceleration
+	 */
 	public static MetersPerSecSquared acceleration(MetersPerSec vel, MetersPerSec initVel, Second time) {
 		double mag = (vel.getValue() - initVel.getValue()) / time.getValue();
 		return new MetersPerSecSquared(mag);
 	}
 
-	//v^2 = v0^2 + 2ax
-	//a = (v^2 - v0^2)/(2x)
-	public static MetersPerSecSquared acceleration(MetersPerSec vel, MetersPerSec initVel, Meter distance) {
-		double mag = (Math.pow(vel.getValue(), 2) - Math.pow(initVel.getValue(), 2)) / (2 * distance.getValue());
+	/**
+	 * Find the acceleration based on the final velocity, initial velocity, and displacement
+	 *
+	 * @param vel     The final velocity
+	 * @param initVel The initial velocity
+	 * @param disp    The displacement
+	 * @return The acceleration
+	 */
+	public static MetersPerSecSquared acceleration(MetersPerSec vel, MetersPerSec initVel, Meter disp) {
+		double mag = (Math.pow(vel.getValue(), 2) - Math.pow(initVel.getValue(), 2)) / (2 * disp.getValue());
 		return new MetersPerSecSquared(mag);
 
 	}
 
-	//x = v0t + (1/2)at^2
-	//a = (x - v0t) / (1/2 * t^2)
-	public static MetersPerSecSquared acceleration(Meter distance, MetersPerSec initVel, Second time) {
-		double mag = (distance.getValue() - initVel.getValue()) / (0.5 * Math.pow(time.getValue(), 2));
+	/**
+	 * Find the acceleration based on displacement, initial velocity, and time elapsed
+	 *
+	 * @param disp    The displacement
+	 * @param initVel The initial velocity
+	 * @param time    The time elapsed
+	 * @return The acceleration
+	 */
+	public static MetersPerSecSquared acceleration(Meter disp, MetersPerSec initVel, Second time) {
+		double mag = (disp.getValue() - initVel.getValue()) / (0.5 * Math.pow(time.getValue(), 2));
 		return new MetersPerSecSquared(mag);
 	}
+
+
 }

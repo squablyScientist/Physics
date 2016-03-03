@@ -19,10 +19,13 @@ class Main {
 		list.add(force3);
 		list.add(force4);
 
-		System.out.println(Force.netForce(list));
+
+		ArrayList<Newton> list2 = Force.getDirectionalAngularForceDegrees(new Newton(50.0), 135);
+
+		list2.add(new Newton(50, Direction.RIGHT));
+		System.out.println(Force.netForce(list2));
+
 
 		System.out.println(new Newton(-100, Direction.RIGHT));
-		System.out.println(new Newton(-150));
-
 	}
 }

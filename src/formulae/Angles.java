@@ -4,6 +4,7 @@ import units.Radians;
 import units.Unit;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Collin Tod
@@ -13,9 +14,17 @@ import java.util.ArrayList;
  */
 
 class Angles {
-	public static ArrayList<Unit> findComponentsDegrees(double magnitude, double angle) {
 
-		ArrayList<Unit> list = new ArrayList<>();
+	/**
+	 * Find the components of a directional unit using degrees
+	 *
+	 * @param magnitude The magnitude of the force that is being evaluated
+	 * @param angle     The angle in relation to the horizontal axis of 0 degrees
+	 * @return an ArrayList with two Unit objects with the magnitude and the direction that make up this angle and magnitude
+	 */
+	public static List<Unit> findComponentsDegrees(double magnitude, double angle) {
+
+		List<Unit> list = new ArrayList<>();
 
 		//Convert the degrees into radians
 		double angRad = Math.toRadians(angle);
@@ -44,17 +53,21 @@ class Angles {
 		} else {
 			//Check to see the quadrant that the angle lies in
 			if (angle < 90) {
-				list.add(new Unit((Math.sin(angRad) * magnitude), Direction.UP));
-				list.add(new Unit((Math.cos(angRad) * magnitude), Direction.RIGHT));
+				list.add(new Unit(Math.abs(Math.cos(angRad) * magnitude), Direction.RIGHT));
+				list.add(new Unit(Math.abs(Math.sin(angRad) * magnitude), Direction.UP));
+
 			} else if (angle < 180) {
-				list.add(new Unit((Math.sin(angRad) * magnitude), Direction.UP));
-				list.add(new Unit((Math.cos(angRad) * magnitude), Direction.LEFT));
+				list.add(new Unit(Math.abs(Math.cos(angRad) * magnitude), Direction.LEFT));
+				list.add(new Unit(Math.abs(Math.sin(angRad) * magnitude), Direction.UP));
+
 			} else if (angle < 270) {
-				list.add(new Unit((Math.sin(angRad) * magnitude), Direction.DOWN));
-				list.add(new Unit((Math.cos(angRad) * magnitude), Direction.LEFT));
+				list.add(new Unit(Math.abs(Math.cos(angRad) * magnitude), Direction.LEFT));
+				list.add(new Unit(Math.abs(Math.sin(angRad) * magnitude), Direction.DOWN));
+
 			} else if (angle < 360) {
-				list.add(new Unit((Math.sin(angRad) * magnitude), Direction.DOWN));
-				list.add(new Unit((Math.sin(angRad) * magnitude), Direction.RIGHT));
+				list.add(new Unit(Math.abs(Math.sin(angRad) * magnitude), Direction.RIGHT));
+				list.add(new Unit(Math.abs(Math.sin(angRad) * magnitude), Direction.DOWN));
+				;
 			}
 		}
 
@@ -62,7 +75,7 @@ class Angles {
 	}
 
 	//radian version of the findComponentsDegrees method
-	public static ArrayList<Unit> findComponentsRadians(double magnitude, Radians angle) {
+	public static List<Unit> findComponentsRadians(double magnitude, Radians angle) {
 		return findComponentsDegrees(magnitude, Math.toDegrees(angle.getValue()));
 	}
 

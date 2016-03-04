@@ -3,6 +3,7 @@ package formulae;
 import units.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Collin Tod
@@ -41,9 +42,9 @@ public class Force {
 	 * @param angle The angle of the force in relation to the right-hand horizontal in degrees
 	 * @return an ArrayList of Newton objects with magnitude and direction, one vertical and one horizontal
 	 */
-	public static ArrayList<Newton> getDirectionalAngularForceDegrees(Newton force, double angle) {
-		ArrayList<Newton> list = new ArrayList<>();
-		ArrayList<Unit> unitArrayList;
+	public static List<Newton> getDirectionalAngularForceDegrees(Newton force, double angle) {
+		List<Newton> list = new ArrayList<>();
+		List<Unit> unitArrayList;
 		unitArrayList = Angles.findComponentsDegrees(force.getValue(), angle);
 
 		list.add((new Newton(unitArrayList.get(0).getValue(), unitArrayList.get(0).getDirection())));
@@ -58,9 +59,9 @@ public class Force {
 	 * @param angle The angle of the force in relation to the right-hand horizontal in radians
 	 * @return an ArrayList of Newton objects with magnitude and direction, one vertical and one horizontal
 	 */
-	public static ArrayList<Newton> getDirectionalAngularForceRadians(Newton force, Radians angle) {
-		ArrayList<Newton> list = new ArrayList<>();
-		ArrayList<Unit> unitArrayList;
+	public static List<Newton> getDirectionalAngularForceRadians(Newton force, Radians angle) {
+		List<Newton> list = new ArrayList<>();
+		List<Unit> unitArrayList;
 		unitArrayList = Angles.findComponentsRadians(force.getValue(), angle);
 
 		list.add((new Newton(unitArrayList.get(0).getValue(), unitArrayList.get(0).getDirection())));
@@ -85,8 +86,8 @@ public class Force {
 	 * @return ArrayList of two Newton objects, with the first being the net horizontal force and the
 	 * second being the net force of the vertical force
 	 */
-	public static ArrayList<Newton> netForce(ArrayList<Newton> forces) {
-		ArrayList<Newton> list = new ArrayList<>();
+	public static List<Newton> netForce(List<Newton> forces) {
+		List<Newton> list = new ArrayList<>();
 
 		double netHor = 0.0;
 		double netVert = 0.0;

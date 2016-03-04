@@ -52,11 +52,13 @@ class Angles {
 			list.add(new Unit(magnitude, Direction.DOWN));
 		} else {
 			//Check to see the quadrant that the angle lies in
+			//First Quadrant
 			if (angle < 90) {
 				list.add(new Unit(Math.abs(Math.cos(angRad) * magnitude), Direction.RIGHT));
 				list.add(new Unit(Math.abs(Math.sin(angRad) * magnitude), Direction.UP));
-
-			} else if (angle < 180) {
+			}
+			//Second Quadrant
+			else if (angle < 180) {
 				list.add(new Unit(Math.abs(Math.cos(angRad) * magnitude), Direction.LEFT));
 				list.add(new Unit(Math.abs(Math.sin(angRad) * magnitude), Direction.UP));
 

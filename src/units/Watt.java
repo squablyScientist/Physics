@@ -2,6 +2,10 @@ package units;
 
 public class Watt extends Unit{
 
+	public Watt(double entry) {
+		super(entry);
+	}
+
 	public Watt(double entry, double deg) {
 		super(entry, deg);
 	}

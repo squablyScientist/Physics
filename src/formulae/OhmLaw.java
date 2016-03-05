@@ -26,7 +26,7 @@ public class OhmLaw {
 	//Current
 
 	/**
-	 * Find the current that is travelling through the element
+	 * Find the current that is travelling through the element based on the voltage and the resistance
 	 *
 	 * @param volt The volatage of the  element
 	 * @param res  The resistance of the element

@@ -2,8 +2,8 @@ package main;
 
 import formulae.Direction;
 import formulae.*;
-import ui.Start;
 import units.*;
+import ui.Start;
 
 import javax.swing.*;
 import java.util.ArrayList;

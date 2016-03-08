@@ -6,16 +6,25 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Created by Collin Tod on 3/7/2016.
+ * @author Collin Tod
+ * @version 0.3
+ * @since 3-7-2016
  */
-public class Start extends JFrame implements ActionListener {
+public class Open extends JFrame implements ActionListener {
 	//Make components
 	private JLabel wel = new JLabel("Welcome to Tali's Physics!");
 	private JButton ent = new JButton("Enter");
+	private Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 
-	public Start() {
+	public Open() {
 		//Set properties of the frame
-		getContentPane().setLayout(new BorderLayout());
+		setSize(300, 100);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		setTitle("Physics Program");
+		setLayout(new BorderLayout());
+		setLocation(dim.width / 2 - getWidth() / 2, dim.height / 2 - getHeight() / 2);
+
+		//Add the components to the frame
 		getContentPane().add(wel, BorderLayout.CENTER);
 		getContentPane().add(ent, BorderLayout.SOUTH);
 
@@ -25,5 +34,6 @@ public class Start extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+
 	}
 }

@@ -3,9 +3,8 @@ package main;
 import formulae.Direction;
 import formulae.*;
 import units.*;
-import ui.Start;
+import ui.Open;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,10 +12,8 @@ class Main {
 
 	public static void main(String[] args) {
 
-		Start frame = new Start();
+		Open frame = new Open();
 		frame.setVisible(true);
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		frame.setSize(500, 500);
 
 		ArrayList<Newton> list = new ArrayList<>();
 

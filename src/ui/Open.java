@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
  */
 public class Open extends JFrame implements ActionListener {
 	//Make components
-	private JLabel wel = new JLabel("Welcome to Tali's Physics!");
+	private JLabel wel = new JLabel("Welcome to Physics!");
 	private JButton ent = new JButton("Enter");
 	private Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 

@@ -50,6 +50,4 @@ public class OhmLaw {
 		double mag = volt.getValue() / cur.getValue();
 		return new Ohm(mag);
 	}
-
-
 }

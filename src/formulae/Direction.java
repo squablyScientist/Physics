@@ -51,7 +51,7 @@ public enum Direction {
 		} else if (d == RIGHT) {
 			return LEFT;
 		} else {
-			throw new Error("Not a valid Direction");
+			throw new Error("Not a valid Direction, why are you editing this code without an IDE");
 		}
 	}
 

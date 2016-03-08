@@ -22,6 +22,8 @@ class Energy {
 //	public Joule springPotEn(){
 //		//TODO finish this 
 //	}
+
+
 	//Kinetic
 
 

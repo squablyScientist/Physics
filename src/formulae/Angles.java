@@ -69,7 +69,6 @@ class Angles {
 			} else if (angle < 360) {
 				list.add(new Unit(Math.abs(Math.sin(angRad) * magnitude), Direction.RIGHT));
 				list.add(new Unit(Math.abs(Math.sin(angRad) * magnitude), Direction.DOWN));
-				;
 			}
 		}
 

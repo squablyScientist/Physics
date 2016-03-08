@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @author Collin Tod
  * @version 0.3
  */
-class Kinematics {
+public class Kinematics {
 
 
 	// -----------------------------Linear 1D--------------------------------
@@ -133,7 +133,7 @@ class Kinematics {
 	 */
 	public static Second time(MetersPerSec initVel, Meter displacement, MetersPerSecSquared accel) {
 		if (initVel.getValue() != 0) {
-			throw new Error("This method does not apply to situations in which the initial velocity is not 0, please use another");
+			throw new Error("This method does not apply to situations in which the initial velocity is not 0, please use another, they do exist.");
 		}
 		double mag = Math.sqrt((displacement.getValue()) / (0.5 * accel.getValue()));
 		return new Second(mag);

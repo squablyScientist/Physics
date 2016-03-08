@@ -42,11 +42,15 @@ class Centripetal {
 		return new Meter(mag);
 	}
 
-	//ac = (v^2) / r
-	//r * ac = v^2
-	//r = (v^2)/ac
-	public Meter radius(MetersPerSec vel, MetersPerSecSquared accell) {
-		double mag = Math.pow(vel.getValue(), 2) / accell.getValue();
+	/**
+	 * Find the radius of a spinning element based on its velocity and acceleration
+	 *
+	 * @param vel   The velocity
+	 * @param accel The acceleration
+	 * @return The radius
+	 */
+	public Meter radius(MetersPerSec vel, MetersPerSecSquared accel) {
+		double mag = Math.pow(vel.getValue(), 2) / accel.getValue();
 		return new Meter(mag);
 	}
 

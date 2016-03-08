@@ -1,19 +1,22 @@
 package main;
 
 import formulae.Direction;
-import formulae.Force;
-import formulae.OhmLaw;
-import units.Ampere;
-import units.Newton;
-import units.Ohm;
-import units.Volt;
+import formulae.*;
+import ui.Start;
+import units.*;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
 class Main {
 
 	public static void main(String[] args) {
+
+		Start frame = new Start();
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		frame.setSize(500, 500);
 
 		ArrayList<Newton> list = new ArrayList<>();
 
@@ -30,7 +33,6 @@ class Main {
 		list2.add(new Newton(50, Direction.RIGHT));
 		System.out.println(Force.netForce(list2));
 
-		Volt v = OhmLaw.findVoltage(new Ampere(1), new Ohm(1));
-		System.out.println(v);
+
 	}
 }

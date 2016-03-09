@@ -8,7 +8,7 @@ import formulae.Direction;
  * @since 2-27-2016
  */
 
-public class Unit {
+public abstract class Unit {
 
 	// Final variable declarations for conversions
 	private final double MILLI_TO_BASE = 1.0e3;
@@ -17,25 +17,29 @@ public class Unit {
 	private double value;
 	Direction direction;
 
+	//default constructor
+	Unit() {
+		direction = null;
+	}
 
-	public Unit(double entry) {
+	Unit(double entry) {
 		setValue(entry);
 
 	}
 
-	public Unit(double entry, double deg) {
+	Unit(double entry, double deg) {
 
 		setValue(Math.pow(entry, deg));
 	}
 
-	public Unit(double entry, double deg, Direction direction) {
+	Unit(double entry, double deg, Direction direction) {
 
 		setValue(Math.pow(entry * direction.getSign(), deg));
 		setDirection(direction);
 
 	}
 
-	public Unit(double entry, Direction direction) {
+	Unit(double entry, Direction direction) {
 		setValue(entry * direction.getSign());
 		setDirection(direction);
 	}
@@ -44,7 +48,7 @@ public class Unit {
 		return direction;
 	}
 
-	private void setDirection(Direction direction) {
+	public void setDirection(Direction direction) {
 		this.direction = direction;
 	}
 

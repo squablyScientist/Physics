@@ -7,7 +7,7 @@ import units.*;
  * @version 0.1
  * @since 3-4-2016
  */
-public class OhmLaw {
+class OhmLaw {
 
 	//Voltage
 
@@ -28,7 +28,7 @@ public class OhmLaw {
 	/**
 	 * Find the current that is travelling through the element based on the voltage and the resistance
 	 *
-	 * @param volt The volatage of the  element
+	 * @param volt The voltage of the  element
 	 * @param res  The resistance of the element
 	 * @return The current travelling through the element
 	 */

@@ -3,13 +3,13 @@ package formulae;
 
 import units.*;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Collin Tod
  * @version 0.3
  */
-public class Kinematics {
+class Kinematics {
 
 
 	// -----------------------------Linear 1D--------------------------------
@@ -52,7 +52,6 @@ public class Kinematics {
 		return new MetersPerSec(mag);
 
 	}
-
 
 	/**
 	 * Find the final velocity based on the initial velocity, acceleration, and the displacement.
@@ -133,7 +132,7 @@ public class Kinematics {
 	 */
 	public static Second time(MetersPerSec initVel, Meter displacement, MetersPerSecSquared accel) {
 		if (initVel.getValue() != 0) {
-			throw new Error("This method does not apply to situations in which the initial velocity is not 0, please use another, they do exist.");
+			throw new IllegalArgumentException();
 		}
 		double mag = Math.sqrt((displacement.getValue()) / (0.5 * accel.getValue()));
 		return new Second(mag);
@@ -207,5 +206,19 @@ public class Kinematics {
 		return new MetersPerSecSquared(mag);
 	}
 
+	//~~~~~~~~~~~~~~~~Linear 2d~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	//velocity components
+
+	/**
+	 * Find the components of a angled velocity
+	 *
+	 * @param magnitude The velocity of the hypotenuse
+	 * @param angle     The angle at which the
+	 * @return a list of the two components(horizontal, vertical)
+	 */
+	public List<MetersPerSec> velComponents(MetersPerSec magnitude, Degree angle) {
+		return new Angles<MetersPerSec>().findComponentsDegrees(magnitude, angle);
+	}
 
 }

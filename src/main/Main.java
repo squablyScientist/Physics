@@ -1,6 +1,5 @@
 package main;
 
-import formulae.Direction;
 import formulae.*;
 import units.*;
 import ui.Open;
@@ -13,6 +12,7 @@ class Main {
 	public static void main(String[] args) {
 
 		Open frame = new Open();
+
 		frame.setVisible(true);
 
 		ArrayList<Newton> list = new ArrayList<>();
@@ -25,10 +25,12 @@ class Main {
 		list.add(force4);
 
 
-		List<Newton> list2 = Force.getDirectionalAngularForceDegrees(new Newton(50.0), 135);
+		List<Newton> list2 = new Force().forceComponents(new Newton(50.0), new Degree(135));
 
 		list2.add(new Newton(50, Direction.RIGHT));
 		System.out.println(Force.netForce(list2));
+
+		System.out.println(new Degree(375));
 
 
 	}

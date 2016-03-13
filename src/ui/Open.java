@@ -11,10 +11,6 @@ import java.awt.event.ActionListener;
  * @since 3-7-2016
  */
 public class Open extends JFrame implements ActionListener {
-	//Make components
-	private JLabel wel = new JLabel("Welcome to Physics!");
-	private JButton ent = new JButton("Enter");
-	private Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 
 	public Open() {
 		//Set properties of the frame
@@ -22,10 +18,13 @@ public class Open extends JFrame implements ActionListener {
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setTitle("Physics Program");
 		setLayout(new BorderLayout());
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 		setLocation(dim.width / 2 - getWidth() / 2, dim.height / 2 - getHeight() / 2);
 
 		//Add the components to the frame
+		JLabel wel = new JLabel("Welcome to Physics!");
 		getContentPane().add(wel, BorderLayout.CENTER);
+		JButton ent = new JButton("Enter");
 		getContentPane().add(ent, BorderLayout.SOUTH);
 
 		//add actionlistener to enter button

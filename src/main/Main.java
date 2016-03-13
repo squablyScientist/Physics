@@ -25,12 +25,11 @@ class Main {
 		list.add(force4);
 
 
-		List<Newton> list2 = new Force().forceComponents(new Newton(50.0), new Degree(135));
-
+		List<Newton> list2 = Force.forceComponents(new Newton(50.0), new Degree(5.0));
+		System.out.println(list2);
 		list2.add(new Newton(50, Direction.RIGHT));
 		System.out.println(Force.netForce(list2));
 
-		System.out.println(new Degree(375));
 
 
 	}

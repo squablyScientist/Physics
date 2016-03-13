@@ -10,7 +10,7 @@ import java.util.IllformedLocaleException;
 public class Degree extends Unit {
 	public Degree(double entry) {
 		if (entry < 0 || entry > 360) {
-			throw new IllformedLocaleException("Cannot evaluate a degreee value greater than 360 or less than 0");
+			throw new IllformedLocaleException("Cannot evaluate a degree value greater than 360 or less than 0");
 		} else {
 			setValue(entry);
 		}

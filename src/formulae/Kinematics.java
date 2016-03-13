@@ -3,6 +3,7 @@ package formulae;
 
 import units.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -164,8 +165,6 @@ class Kinematics {
 		return new Meter(mag);
 	}
 
-	//Find the acceleration
-
 	/**
 	 * Find the acceleration based on the
 	 *
@@ -208,17 +207,76 @@ class Kinematics {
 
 	//~~~~~~~~~~~~~~~~Linear 2d~~~~~~~~~~~~~~~~~~~~~~~~~
 
-	//velocity components
+	/**
+	 * Find the components of a angled velocity
+	 *
+	 * @param speed The velocity of the hypotenuse
+	 * @param angle The angle at which the magnitude is pointed, in angles
+	 * @return a list of the two components(horizontal, vertical)
+	 */
+	public static List<MetersPerSec> velComponents(MetersPerSec speed, Degree angle) {
+		List<MetersPerSec> list = new ArrayList<>();
+		List<Unit> unitArrayList;
+		unitArrayList = Angles.findComponentsDegrees(speed, angle);
+
+		list.add((new MetersPerSec(unitArrayList.get(0).getValue(), unitArrayList.get(0).getDirection())));
+		list.add((new MetersPerSec(unitArrayList.get(1).getValue(), unitArrayList.get(1).getDirection())));
+
+		return list;
+	}
 
 	/**
 	 * Find the components of a angled velocity
 	 *
-	 * @param magnitude The velocity of the hypotenuse
-	 * @param angle     The angle at which the
+	 * @param speed The velocity of the hypotenuse
+	 * @param angle The angle at which the magnitude is pointed in radians
 	 * @return a list of the two components(horizontal, vertical)
 	 */
-	public List<MetersPerSec> velComponents(MetersPerSec magnitude, Degree angle) {
-		return new Angles<MetersPerSec>().findComponentsDegrees(magnitude, angle);
+	public static List<MetersPerSec> velComponents(MetersPerSec speed, Radians angle) {
+		List<MetersPerSec> list = new ArrayList<>();
+		List<Unit> unitArrayList;
+		unitArrayList = Angles.findComponentsRadians(speed, angle);
+
+		list.add((new MetersPerSec(unitArrayList.get(0).getValue(), unitArrayList.get(0).getDirection())));
+		list.add((new MetersPerSec(unitArrayList.get(1).getValue(), unitArrayList.get(1).getDirection())));
+
+		return list;
 	}
 
+
+	/**
+	 * Find the components of a angled acceleration
+	 *
+	 * @param accel The acceleration of the hypotenuse
+	 * @param angle The angle at which the magnitude is pointed in degrees
+	 * @return a list of the two components(horizontal, vertical)
+	 */
+	public static List<MetersPerSecSquared> accComponents(MetersPerSecSquared accel, Degree angle) {
+		List<MetersPerSecSquared> list = new ArrayList<>();
+		List<Unit> unitArrayList;
+		unitArrayList = Angles.findComponentsDegrees(accel, angle);
+
+		list.add((new MetersPerSecSquared(unitArrayList.get(0).getValue(), unitArrayList.get(0).getDirection())));
+		list.add((new MetersPerSecSquared(unitArrayList.get(1).getValue(), unitArrayList.get(1).getDirection())));
+
+		return list;
+	}
+
+	/**
+	 * Find the components of a angled acceleration
+	 *
+	 * @param accel The acceleration of the hypotenuse
+	 * @param angle The angle at which the magnitude is pointed in radians
+	 * @return a list of the two components(horizontal, vertical)
+	 */
+	public static List<MetersPerSecSquared> accComponents(MetersPerSecSquared accel, Radians angle) {
+		List<MetersPerSecSquared> list = new ArrayList<>();
+		List<Unit> unitArrayList;
+		unitArrayList = Angles.findComponentsRadians(accel, angle);
+
+		list.add((new MetersPerSecSquared(unitArrayList.get(0).getValue(), unitArrayList.get(0).getDirection())));
+		list.add((new MetersPerSecSquared(unitArrayList.get(1).getValue(), unitArrayList.get(1).getDirection())));
+
+		return list;
+	}
 }

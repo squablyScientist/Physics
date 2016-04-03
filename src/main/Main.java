@@ -5,6 +5,7 @@ import units.*;
 import ui.Open;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 class Main {
@@ -25,10 +26,12 @@ class Main {
 		list.add(force4);
 
 
-		List<Newton> list2 = Force.forceComponents(new Newton(50.0), new Degree(5.0));
-		System.out.println(list2);
-		list2.add(new Newton(50, Direction.RIGHT));
-		System.out.println(Force.netForce(list2));
+		Newton[] list2 = Force.forceComponents(new Newton(50.0), new Degree(5.0));
+		System.out.println(Arrays.toString(list2));
+		ArrayList<Newton> list3 = new ArrayList<>();
+		list3.addAll(Arrays.asList(list2));
+		list3.add(new Newton(50, Direction.RIGHT));
+		System.out.println(Arrays.toString(Force.netForce(list3)));
 
 
 

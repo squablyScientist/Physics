@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
  * @since 3-7-2016
  */
 public class Open extends JFrame implements ActionListener {
+	private Choose_Subject choose = new Choose_Subject();
 
 	public Open() {
 		//Set properties of the frame
@@ -33,6 +34,7 @@ public class Open extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
+		this.setVisible(false);
+		choose.setVisible(true);
 	}
 }

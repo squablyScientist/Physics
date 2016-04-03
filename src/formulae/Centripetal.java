@@ -19,7 +19,7 @@ class Centripetal {
 	 */
 	public Newton centripForce(Kilogram mass, MetersPerSec vel, Meter radius) {
 		double mag = (mass.getValue() * Math.pow(vel.getValue(), 2)) / radius.getValue();
-		return new Newton(mag, 1.0);
+		return new Newton(mag);
 	}
 
 	//Find the acceleration due to centripetal force
@@ -30,7 +30,7 @@ class Centripetal {
 	//ac = (v^2)/r
 	public MetersPerSecSquared centripAccel(MetersPerSec vel, Meter radius) {
 		double mag = (Math.pow(vel.getValue(), 2)) / radius.getValue();
-		return new MetersPerSecSquared(mag, 1.0);
+		return new MetersPerSecSquared(mag);
 	}
 
 	//find the radius

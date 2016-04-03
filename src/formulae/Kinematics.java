@@ -3,12 +3,9 @@ package formulae;
 
 import units.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * @author Collin Tod
- * @version 0.3
+ * @version 0.5
  */
 class Kinematics {
 
@@ -212,17 +209,16 @@ class Kinematics {
 	 *
 	 * @param speed The velocity of the hypotenuse
 	 * @param angle The angle at which the magnitude is pointed, in angles
-	 * @return a list of the two components(horizontal, vertical)
+	 * @return an array of the two components(horizontal, vertical)
 	 */
-	public static List<MetersPerSec> velComponents(MetersPerSec speed, Degree angle) {
-		List<MetersPerSec> list = new ArrayList<>();
-		List<Unit> unitArrayList;
-		unitArrayList = Angles.findComponentsDegrees(speed, angle);
+	public static MetersPerSec[] velComponents(MetersPerSec speed, Degree angle) {
+		MetersPerSec[] arr = new MetersPerSec[2];
+		Unit[] unitArray = Angles.findComponentsDegrees(speed, angle);
 
-		list.add((new MetersPerSec(unitArrayList.get(0).getValue(), unitArrayList.get(0).getDirection())));
-		list.add((new MetersPerSec(unitArrayList.get(1).getValue(), unitArrayList.get(1).getDirection())));
+		arr[0] = (new MetersPerSec(unitArray[0].getValue(), unitArray[0].getDirection()));
+		arr[1] = (new MetersPerSec(unitArray[1].getValue(), unitArray[1].getDirection()));
 
-		return list;
+		return arr;
 	}
 
 	/**
@@ -232,15 +228,14 @@ class Kinematics {
 	 * @param angle The angle at which the magnitude is pointed in radians
 	 * @return a list of the two components(horizontal, vertical)
 	 */
-	public static List<MetersPerSec> velComponents(MetersPerSec speed, Radians angle) {
-		List<MetersPerSec> list = new ArrayList<>();
-		List<Unit> unitArrayList;
-		unitArrayList = Angles.findComponentsRadians(speed, angle);
+	public static MetersPerSec[] velComponents(MetersPerSec speed, Radians angle) {
+		MetersPerSec[] arr = new MetersPerSec[2];
+		Unit[] unitArray = Angles.findComponentsRadians(speed, angle);
 
-		list.add((new MetersPerSec(unitArrayList.get(0).getValue(), unitArrayList.get(0).getDirection())));
-		list.add((new MetersPerSec(unitArrayList.get(1).getValue(), unitArrayList.get(1).getDirection())));
+		arr[0] = (new MetersPerSec(unitArray[0].getValue(), unitArray[0].getDirection()));
+		arr[1] = (new MetersPerSec(unitArray[1].getValue(), unitArray[1].getDirection()));
 
-		return list;
+		return arr;
 	}
 
 
@@ -251,15 +246,14 @@ class Kinematics {
 	 * @param angle The angle at which the magnitude is pointed in degrees
 	 * @return a list of the two components(horizontal, vertical)
 	 */
-	public static List<MetersPerSecSquared> accComponents(MetersPerSecSquared accel, Degree angle) {
-		List<MetersPerSecSquared> list = new ArrayList<>();
-		List<Unit> unitArrayList;
-		unitArrayList = Angles.findComponentsDegrees(accel, angle);
+	public static Unit[] accComponents(MetersPerSecSquared accel, Degree angle) {
+		Unit[] arr = new Unit[2];
+		Unit[] unitArr = Angles.findComponentsDegrees(accel, angle);
 
-		list.add((new MetersPerSecSquared(unitArrayList.get(0).getValue(), unitArrayList.get(0).getDirection())));
-		list.add((new MetersPerSecSquared(unitArrayList.get(1).getValue(), unitArrayList.get(1).getDirection())));
+		arr[0] = (new MetersPerSecSquared(unitArr[0].getValue(), unitArr[0].getDirection()));
+		arr[1] = (new MetersPerSecSquared(unitArr[1].getValue(), unitArr[1].getDirection()));
 
-		return list;
+		return arr;
 	}
 
 	/**
@@ -269,14 +263,13 @@ class Kinematics {
 	 * @param angle The angle at which the magnitude is pointed in radians
 	 * @return a list of the two components(horizontal, vertical)
 	 */
-	public static List<MetersPerSecSquared> accComponents(MetersPerSecSquared accel, Radians angle) {
-		List<MetersPerSecSquared> list = new ArrayList<>();
-		List<Unit> unitArrayList;
-		unitArrayList = Angles.findComponentsRadians(accel, angle);
+	public static Unit[] accComponents(MetersPerSecSquared accel, Radians angle) {
+		Unit[] arr = new Unit[2];
+		Unit[] unitArr = Angles.findComponentsRadians(accel, angle);
 
-		list.add((new MetersPerSecSquared(unitArrayList.get(0).getValue(), unitArrayList.get(0).getDirection())));
-		list.add((new MetersPerSecSquared(unitArrayList.get(1).getValue(), unitArrayList.get(1).getDirection())));
+		arr[0] = (new MetersPerSecSquared(unitArr[0].getValue(), unitArr[0].getDirection()));
+		arr[1] = (new MetersPerSecSquared(unitArr[1].getValue(), unitArr[1].getDirection()));
 
-		return list;
+		return arr;
 	}
 }

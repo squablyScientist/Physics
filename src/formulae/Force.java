@@ -44,15 +44,14 @@ public class Force {
 	 * @param angle The angle of the force in relation to the right-hand horizontal in degrees
 	 * @return an ArrayList of Newton objects with magnitude and direction, one vertical and one horizontal
 	 */
-	public static List<Newton> forceComponents(Newton force, Degree angle) {
-		List<Newton> list = new ArrayList<>();
-		List<Unit> unitList;
-		unitList = Angles.findComponentsDegrees(force, angle);
+	public static Newton[] forceComponents(Newton force, Degree angle) {
+		Newton[] forces = new Newton[2];
+		Unit[] unitArr = Angles.findComponentsDegrees(force, angle);
 
-		list.add((new Newton(unitList.get(0).getValue(), unitList.get(0).getDirection())));
-		list.add((new Newton(unitList.get(1).getValue(), unitList.get(1).getDirection())));
+		forces[0] = new Newton(unitArr[0].getValue(), unitArr[0].getDirection());
+		forces[1] = new Newton(unitArr[1].getValue(), unitArr[1].getDirection());
 
-		return list;
+		return forces;
 	}
 
 	/**
@@ -62,15 +61,14 @@ public class Force {
 	 * @param angle The angle of the force in relation to the right-hand horizontal in radians
 	 * @return an ArrayList of Newton objects with magnitude and direction, one vertical and one horizontal
 	 */
-	public static List<Newton> forceComponents(Newton force, Radians angle) {
-		List<Newton> list = new ArrayList<>();
-		List<Unit> unitArrayList;
-		unitArrayList = Angles.findComponentsRadians(force, angle);
+	public static Newton[] forceComponents(Newton force, Radians angle) {
+		Newton[] forces = new Newton[2];
+		Unit[] unitArr = Angles.findComponentsRadians(force, angle);
 
-		list.add((new Newton(unitArrayList.get(0).getValue(), unitArrayList.get(0).getDirection())));
-		list.add((new Newton(unitArrayList.get(1).getValue(), unitArrayList.get(1).getDirection())));
+		forces[0] = new Newton(unitArr[0].getValue(), unitArr[0].getDirection());
+		forces[1] = new Newton(unitArr[1].getValue(), unitArr[1].getDirection());
 
-		return list;
+		return forces;
 	}
 
 
@@ -91,8 +89,8 @@ public class Force {
 	 * @return ArrayList of two Newton objects, with the first being the net horizontal force and the
 	 * second being the net force of the vertical force
 	 */
-	public static List<Newton> netForce(List<Newton> forces) {
-		List<Newton> list = new ArrayList<>();
+	public static Newton[] netForce(List<Newton> forces) {
+		Newton[] arr = new Newton[2];
 
 		double netHor = 0.0;
 		double netVert = 0.0;
@@ -125,10 +123,10 @@ public class Force {
 			hor = new Newton(netHor);
 		}
 
-		list.add(hor);
-		list.add(vert);
+		arr[0] = hor;
+		arr[1] = vert;
 
-		return list;
+		return arr;
 	}
 }
 

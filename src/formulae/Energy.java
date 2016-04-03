@@ -20,7 +20,7 @@ class Energy {
 
 	//Spring
 //	public Joule springPotEn(){
-//		//TODO finish this 
+//		//TODO finish this you lazy prick
 //	}
 
 

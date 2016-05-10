@@ -16,21 +16,24 @@ import java.awt.event.ActionListener;
  */
 class Choose_Subject extends JFrame implements TreeSelectionListener, ActionListener {
     //declare tree elements
-    private DefaultMutableTreeNode root = new DefaultMutableTreeNode("Physics"),
-            kine = new DefaultMutableTreeNode("Kinematics"),
-            force = new DefaultMutableTreeNode("Forces"),
-            circuits = new DefaultMutableTreeNode("Circuits"),
-            oneD = new DefaultMutableTreeNode("One Dimensional"),
-            twoD = new DefaultMutableTreeNode("Two Dimensional");
-
+    private DefaultMutableTreeNode root = new DefaultMutableTreeNode("Physics");
     private JTree tree = new JTree(root);
-    private JPanel pane = new JPanel();
-    private JLabel title = new JLabel(), current = new JLabel();
-    private JButton okBut = new JButton("Accept");
+
+    //other declarations
+    private JLabel current = new JLabel();
     private JFrame next;
-//
-    //test again
+
     Choose_Subject() {
+        //local Declarations
+        DefaultMutableTreeNode kine = new DefaultMutableTreeNode("Kinematics"),
+                force = new DefaultMutableTreeNode("Forces"),
+                circuits = new DefaultMutableTreeNode("Circuits"),
+                oneD = new DefaultMutableTreeNode("One Dimensional"),
+                twoD = new DefaultMutableTreeNode("Two Dimensional");
+         JPanel pane = new JPanel();
+         JLabel title = new JLabel();
+         JButton okBut = new JButton("Accept");
+
         //Set frame properties
         setSize(300, 500);
         setVisible(true);

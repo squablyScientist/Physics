@@ -2,7 +2,6 @@ package formulae;
 
 import units.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

@@ -30,12 +30,12 @@ class Choose_Subject extends JFrame implements TreeSelectionListener, ActionList
                 circuits = new DefaultMutableTreeNode("Circuits"),
                 oneD = new DefaultMutableTreeNode("One Dimensional"),
                 twoD = new DefaultMutableTreeNode("Two Dimensional");
-         JPanel pane = new JPanel();
-         JLabel title = new JLabel();
-         JButton okBut = new JButton("Accept");
+        JPanel pane = new JPanel();
+        JLabel title = new JLabel();
+        JButton okBut = new JButton("Accept");
 
         //Set frame properties
-        setSize(300, 500);
+        setSize(350, 500);
         setVisible(true);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("Choose your field of physics");
@@ -103,9 +103,9 @@ class Choose_Subject extends JFrame implements TreeSelectionListener, ActionList
 
         switch (node.toString()) {
             case "One Dimensional":
-                System.out.println("One Dim");
+            case "Two Dimensional":
+               new KineUI();
                 break;
-
         }
     }
 }

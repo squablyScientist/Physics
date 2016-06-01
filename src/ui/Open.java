@@ -28,7 +28,7 @@ public class Open extends JFrame implements ActionListener {
 		JButton ent = new JButton("Enter");
 		getContentPane().add(ent, BorderLayout.SOUTH);
 
-		//add actionlistener to enter button
+		//add action listener to enter button
 		ent.addActionListener(this);
 	}
 

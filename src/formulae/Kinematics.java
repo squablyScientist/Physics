@@ -7,7 +7,7 @@ import units.*;
  * @author Collin Tod
  * @version 0.5
  */
-class Kinematics {
+public class Kinematics {
 
 
 	// -----------------------------Linear 1D--------------------------------

@@ -32,7 +32,7 @@ class Main {
 		list3.add(new Newton(50, Direction.RIGHT));
 		System.out.println(Arrays.toString(Force.netForce(list3)));
 
-		//fuck everything
+
 
 	}
 }

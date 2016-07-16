@@ -79,7 +79,7 @@ class KineUI extends CalcUI {
             }
 
         } catch (NumberFormatException n) {
-//            new Error("That is not a pure number, please only use number characters and '.' ");
+            new Error("That is not a pure number, please only use number characters and '.' ");
         }
 
     }

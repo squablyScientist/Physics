@@ -2,6 +2,7 @@ package ui;
 
 import formulae.Kinematics;
 import units.*;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -52,7 +53,7 @@ class KineUI extends CalcUI {
             dispose();
         }
 
-        if(e.getSource().equals(solv)){
+        if (e.getSource().equals(solv)) {
             solve();
         }
     }
@@ -63,26 +64,21 @@ class KineUI extends CalcUI {
      */
 
     private void solve() {
-        if(!areEmpty(accel)){
+        if (!areEmpty(accel)) {
             double accD = Double.parseDouble(accel.getText());
         }
 
-        try{
+        try {
             double timeD = Double.parseDouble(time.getText()), dispD = Double.parseDouble(disp.getText()),
-            accD = Double.parseDouble(accel.getText());
-
-
+                    accD = Double.parseDouble(accel.getText());
 
             if (!areEmpty(disp, time) && !finVel.hasFocus()) {
                 finVel.setText("" + Kinematics.vel(new Meter(dispD), new Second(timeD)).getValue());
-            }
-
-            else if(!areEmpty(accel, time) && !finVel.hasFocus()){
+            } else if (!areEmpty(accel, time) && !finVel.hasFocus()) {
                 finVel.setText("" + Kinematics.vel(new MetersPerSecSquared(accD), new Second(timeD)).getValue());
             }
 
-        }
-        catch (NumberFormatException n){
+        } catch (NumberFormatException n) {
 //            new Error("That is not a pure number, please only use number characters and '.' ");
         }
 

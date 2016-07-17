@@ -33,6 +33,7 @@ class KineUI extends CalcUI {
         JPanel fields = new JPanel(), ans = new JPanel();
         fields.setLayout(new GridLayout(5, 2));
 
+
         //build the label/fields pane
         addMult(fields, new JLabel("Acceleration(m/s^2)"), accel, new JLabel("Final Velocity(m/s)"),
                 finVel, new JLabel("Displacement(m)"), disp, new JLabel("Initial Velocity(m/s)"), initVel,
@@ -69,6 +70,7 @@ class KineUI extends CalcUI {
         }
 
         try {
+            //Parses all variables into doubles
             double timeD = Double.parseDouble(time.getText()), dispD = Double.parseDouble(disp.getText()),
                     accD = Double.parseDouble(accel.getText());
 

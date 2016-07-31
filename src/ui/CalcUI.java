@@ -54,6 +54,9 @@ abstract class CalcUI extends JFrame implements ActionListener {
         }
     }
 
+    double parse(String s){
+        return Double.parseDouble(s);
+    }
     /**
      * Checks to see if any textFields re empty in a group
      *

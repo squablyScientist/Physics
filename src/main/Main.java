@@ -17,7 +17,10 @@ class Main {
 
 		ArrayList<Newton> list = new ArrayList<>();
 
-		Newton force1 = new Newton(-50, Direction.RIGHT), force2 = new Newton(60, Direction.LEFT), force3 = new Newton(50, Direction.DOWN), force4 = new Newton(100, Direction.UP);
+		Newton force1 = new Newton(-50, Direction.RIGHT),
+				force2 = new Newton(60, Direction.LEFT),
+				force3 = new Newton(50, Direction.DOWN),
+				force4 = new Newton(100, Direction.UP);
 
 		list.add(force1);
 		list.add(force2);

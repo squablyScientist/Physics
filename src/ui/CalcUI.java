@@ -73,7 +73,7 @@ abstract class CalcUI extends JFrame implements ActionListener {
 		}
 	}
 
-	//TODO make this work with other numerical types
+	//TODO
     double parse(String s){
         return Double.parseDouble(s);
 

@@ -19,7 +19,7 @@ class KineUI extends CalcUI {
             disp = new JTextField(), initVel = new JTextField(), time = new JTextField();
 
     KineUI() {
-        super("Kinematics");
+        super("Kinematics", true);
         String[] strs = new String[]{"One Dimension", "Two Dimension"};
         JPanel[] panes = new JPanel[]{oneD, twoD};
         makeTabs(strs, panes);

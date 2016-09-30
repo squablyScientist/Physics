@@ -33,9 +33,9 @@ abstract class CalcUI extends JFrame implements ActionListener {
 
 		//Sets up a borderLayout window in the case that it is not tabbed
 		else{
-			pane.setLayout(new BorderLayout());
-			pane.add(buttons, BorderLayout.SOUTH);
-			pane.add(fields, BorderLayout.CENTER);
+//			pane.setLayout(new BorderLayout());
+//			pane.add(buttons, BorderLayout.SOUTH);
+//			pane.add(fields, BorderLayout.CENTER);
 			add(pane);
 		}
 

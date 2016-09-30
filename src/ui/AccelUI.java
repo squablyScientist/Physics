@@ -19,6 +19,7 @@ public class AccelUI extends CalcUI{
 
 	@Override
 	void build() {
+		addMult(pane, fields, buttons);
 		fields.setLayout(new GridLayout(3,2));
 		addMult(fields, new JLabel("Change in Velocity(m/s)"), dVel, new JLabel("Time Elapsed(s)"), time,
 				new JLabel("Acceleration(m/s^2)"), accel);

@@ -33,9 +33,6 @@ abstract class CalcUI extends JFrame implements ActionListener {
 
 		//Sets up a borderLayout window in the case that it is not tabbed
 		else{
-//			pane.setLayout(new BorderLayout());
-//			pane.add(buttons, BorderLayout.SOUTH);
-//			pane.add(fields, BorderLayout.CENTER);
 			add(pane);
 		}
 
@@ -76,8 +73,10 @@ abstract class CalcUI extends JFrame implements ActionListener {
 		}
 	}
 
+	//TODO make this work with other numerical types
     double parse(String s){
         return Double.parseDouble(s);
+
     }
 
     /**
@@ -95,13 +94,48 @@ abstract class CalcUI extends JFrame implements ActionListener {
         return false;
     }
 
-    //Will be implemented as the method that sets up everything in the window
-    abstract void build();
+
 
 	@Override
 	public void actionPerformed(ActionEvent actionEvent) {
 		if(actionEvent.getSource().equals(close)){
 			dispose();
 		}
+		else if(actionEvent.getSource().equals(solve)){
+			solve();
+		}
 	}
+
+	/**
+	 *  Tests to see if a String is numeric or not
+	 * @param str String to be tested
+	 * @return Whether or str is numeric
+	 */
+	boolean isNumeric(String str)
+	{
+		try
+		{
+			double d = Double.parseDouble(str);
+		}
+		catch(NumberFormatException nfe)
+		{
+			return false;
+		}
+		return true;
+	}
+
+	boolean areNumeric(String... strs){
+		for(String s : strs){
+			if(!isNumeric(s)){
+				return false;
+			}
+		}
+		return true;
+	}
+
+	//Will be implemented as the method that sets up everything in the window
+	abstract void build();
+
+	//Finds the answer to whatever each window needs to find
+	abstract void solve();
 }

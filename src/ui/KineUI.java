@@ -64,7 +64,7 @@ public class KineUI extends CalcUI {
      * usage
      */
 
-    private void solve() {
+     void solve() {
         if (!areEmpty(accel)) {
             double accD = Double.parseDouble(accel.getText());
         }

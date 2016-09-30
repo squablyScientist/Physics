@@ -5,7 +5,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 
 /**
- * Created by turgon on 9/30/16.
+ * @author Collin Tod
+ * @version 0.1
+ *
  */
 public class AccelUI extends CalcUI{
 
@@ -21,15 +23,19 @@ public class AccelUI extends CalcUI{
 	void build() {
 		addMult(pane, fields, buttons);
 		fields.setLayout(new GridLayout(3,2));
-		addMult(fields, new JLabel("Change in Velocity(m/s)"), dVel, new JLabel("Time Elapsed(s)"), time,
-				new JLabel("Acceleration(m/s^2)"), accel);
-//		addMult(fields, dVel, time);
-
-//		add(fields);
+		addMult(fields, new JLabel("Change in Velocity(m/s)"),
+				dVel, new JLabel("Time Elapsed(s)"), time, new JLabel("Acceleration(m/s^2)"), accel);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent actionEvent) {
 		super.actionPerformed(actionEvent);
+	}
+
+	@Override
+	void solve() {
+		if (areNumeric(dVel.getText(), time.getText())) {
+			accel.setText("" + parse(dVel.getText()) / parse(time.getText()) + "m/s^2");
+		}
 	}
 }

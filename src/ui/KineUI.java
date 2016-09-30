@@ -12,13 +12,13 @@ import java.awt.event.ActionEvent;
  * @version 0.1
  * @since 5-10-2016
  */
-class KineUI extends CalcUI {
+public class KineUI extends CalcUI {
     private JPanel oneD = new JPanel(), twoD = new JPanel();
     private JButton close = new JButton("Close"), solv = new JButton("Solve");
     private JTextField accel = new JTextField(), finVel = new JTextField(),
             disp = new JTextField(), initVel = new JTextField(), time = new JTextField();
 
-    KineUI() {
+    public KineUI() {
         super("Kinematics", true);
         String[] strs = new String[]{"One Dimension", "Two Dimension"};
         JPanel[] panes = new JPanel[]{oneD, twoD};
@@ -30,14 +30,14 @@ class KineUI extends CalcUI {
      * Essentially this just builds the window, didn't want to have everything in the constructor
      */
     void build() {
-        JPanel fields = new JPanel(), ans = new JPanel();
+        JPanel ans = new JPanel();
         fields.setLayout(new GridLayout(5, 2));
-
 
         //build the label/fields pane
         addMult(fields, new JLabel("Acceleration(m/s^2)"), accel, new JLabel("Final Velocity(m/s)"),
                 finVel, new JLabel("Displacement(m)"), disp, new JLabel("Initial Velocity(m/s)"), initVel,
                 new JLabel("Time(s)"), time);
+
         ans.add(new JLabel("Result:"));
         close.addActionListener(this);
         solv.addActionListener(this);

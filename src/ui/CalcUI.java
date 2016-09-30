@@ -3,6 +3,7 @@ package ui;
 import javax.swing.*;
 import javax.swing.text.JTextComponent;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
@@ -15,10 +16,11 @@ abstract class CalcUI extends JFrame implements ActionListener {
 
     //Common fields and panes
 	JButton solve = new JButton("Solve"), close = new JButton("Close");
-	JPanel buttons = new JPanel();
+	JPanel buttons = new JPanel(), labels = new JPanel(), fields = new JPanel(), pane = new JPanel();
 
     CalcUI(String title, boolean tab) {
 
+		addMultListeners(close, solve);
         setTitle(title);
         setSize(400, 400);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -31,8 +33,10 @@ abstract class CalcUI extends JFrame implements ActionListener {
 
 		//Sets up a borderLayout window in the case that it is not tabbed
 		else{
-			setLayout(new BorderLayout());
-			add(buttons, BorderLayout.SOUTH);
+			pane.setLayout(new BorderLayout());
+			pane.add(buttons, BorderLayout.SOUTH);
+			pane.add(fields, BorderLayout.CENTER);
+			add(pane);
 		}
 
 		addMult(buttons, solve, close);
@@ -66,7 +70,7 @@ abstract class CalcUI extends JFrame implements ActionListener {
         }
     }
 
-    void addMult(JButton... b){
+    void addMultListeners(JButton... b){
 		for(JButton B : b){
 			B.addActionListener(this);
 		}
@@ -91,5 +95,13 @@ abstract class CalcUI extends JFrame implements ActionListener {
         return false;
     }
 
+    //Will be implemented as the method that sets up everything in the window
     abstract void build();
+
+	@Override
+	public void actionPerformed(ActionEvent actionEvent) {
+		if(actionEvent.getSource().equals(close)){
+			dispose();
+		}
+	}
 }

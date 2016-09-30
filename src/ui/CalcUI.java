@@ -3,6 +3,7 @@ package ui;
 import javax.swing.*;
 import javax.swing.text.JTextComponent;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
@@ -13,17 +14,32 @@ import java.awt.event.ActionListener;
 abstract class CalcUI extends JFrame implements ActionListener {
     private JTabbedPane tabbed = new JTabbedPane();
 
-    CalcUI(String title) {
+    //Common fields and panes
+	JButton solve = new JButton("Solve"), close = new JButton("Close");
+	JPanel buttons = new JPanel(), labels = new JPanel(), fields = new JPanel(), pane = new JPanel();
 
-        JButton close = new JButton("Go back to selection");
+    CalcUI(String title, boolean tab) {
+
+		addMultListeners(close, solve);
         setTitle(title);
         setSize(400, 400);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         setLocation(dim.width / 2 - getWidth() / 2, dim.height / 2 - getHeight() / 2);
-        setLayout(new CardLayout());
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        add(tabbed);
-        add(close);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		if(tab) {
+			setLayout(new CardLayout());
+			add(tabbed);
+		}
+
+		//Sets up a borderLayout window in the case that it is not tabbed
+		else{
+//			pane.setLayout(new BorderLayout());
+//			pane.add(buttons, BorderLayout.SOUTH);
+//			pane.add(fields, BorderLayout.CENTER);
+			add(pane);
+		}
+
+		addMult(buttons, solve, close);
         setVisible(true);
     }
 
@@ -54,9 +70,16 @@ abstract class CalcUI extends JFrame implements ActionListener {
         }
     }
 
+    void addMultListeners(JButton... b){
+		for(JButton B : b){
+			B.addActionListener(this);
+		}
+	}
+
     double parse(String s){
         return Double.parseDouble(s);
     }
+
     /**
      * Checks to see if any textFields re empty in a group
      *
@@ -72,5 +95,13 @@ abstract class CalcUI extends JFrame implements ActionListener {
         return false;
     }
 
+    //Will be implemented as the method that sets up everything in the window
     abstract void build();
+
+	@Override
+	public void actionPerformed(ActionEvent actionEvent) {
+		if(actionEvent.getSource().equals(close)){
+			dispose();
+		}
+	}
 }
